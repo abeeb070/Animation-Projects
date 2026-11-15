@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en">
@@ -1049,3 +1050,1056 @@ showScene(0);
 
 </body>
 </html>
+=======
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animation Projects</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #10141c;
+    color: #f5f1e9;
+}
+
+header {
+    text-align: center;
+    padding: 45px 20px;
+    background: linear-gradient(120deg, #171f2d, #30394a);
+    border-bottom: 1px solid #485368;
+}
+
+header h1 {
+    font-size: 34px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+header p {
+    color: #c4cbd5;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 20px;
+    background: #171e29;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 11px 18px;
+    border: 1px solid #68778c;
+    border-radius: 25px;
+    transition: .3s;
+}
+
+nav a:hover {
+    background: #d49b58;
+    color: #111;
+}
+
+section {
+    padding: 65px 20px;
+    max-width: 1100px;
+    margin: auto;
+    scroll-margin-top: 20px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: #b8c0cc;
+    line-height: 1.6;
+}
+
+.stage {
+    position: relative;
+    height: 420px;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #e9e1d2;
+    box-shadow: 0 15px 40px #0007;
+}
+
+/* =========================
+   1. CAT AND MOUSE
+========================= */
+
+.cat-stage {
+    background:
+        radial-gradient(ellipse at 50% 85%, #8e795f 0%, transparent 55%),
+        linear-gradient(#d9e4e3 0%, #e9dfce 65%, #9b8061 66%);
+}
+
+.ground-line {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #76624d;
+}
+
+.cat {
+    position: absolute;
+    left: 50%;
+    bottom: 65px;
+    width: 190px;
+    height: 230px;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.cat-body {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 150px;
+    height: 115px;
+    border-radius: 55% 55% 35% 35%;
+    background: linear-gradient(120deg, #3d4147, #171b21);
+    box-shadow: inset -12px -10px 0 #1117;
+}
+
+.cat-head {
+    position: absolute;
+    width: 135px;
+    height: 120px;
+    left: 27px;
+    top: 35px;
+    border-radius: 48% 48% 45% 45%;
+    background: linear-gradient(130deg, #555a60, #252a30);
+    transform-origin: bottom center;
+    z-index: 3;
+}
+
+.ear {
+    position: absolute;
+    width: 48px;
+    height: 55px;
+    top: -24px;
+    background: #353a40;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.ear.left { left: 0; }
+.ear.right { right: 0; }
+
+.ear::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    width: 22px;
+    height: 30px;
+    background: #b87c7b;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.eye {
+    position: absolute;
+    top: 43px;
+    width: 22px;
+    height: 27px;
+    border-radius: 50%;
+    background: #d5db70;
+    overflow: hidden;
+}
+
+.eye.left { left: 31px; }
+.eye.right { right: 31px; }
+
+.pupil {
+    position: absolute;
+    width: 7px;
+    height: 20px;
+    background: #111;
+    border-radius: 50%;
+    top: 3px;
+    left: 8px;
+    transition: .15s;
+}
+
+.nose {
+    position: absolute;
+    top: 75px;
+    left: 61px;
+    width: 13px;
+    height: 10px;
+    background: #d48b91;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.mouth {
+    position: absolute;
+    top: 85px;
+    left: 65px;
+    width: 2px;
+    height: 13px;
+    background: #161616;
+}
+
+.tail {
+    position: absolute;
+    width: 80px;
+    height: 65px;
+    border: 12px solid #252a30;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 100% 0 0;
+    right: -27px;
+    bottom: 75px;
+    transform-origin: left bottom;
+    animation: tailMove 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes tailMove {
+    from { transform: rotate(-15deg); }
+    to { transform: rotate(18deg); }
+}
+
+.cat-leg {
+    position: absolute;
+    bottom: -2px;
+    width: 38px;
+    height: 65px;
+    background: #272c32;
+    border-radius: 15px;
+}
+
+.leg-one { left: 35px; }
+.leg-two { right: 35px; }
+
+.mouse-orbit {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    left: 50%;
+    top: 45%;
+    margin-left: -145px;
+    margin-top: -145px;
+    border-radius: 50%;
+    border: 2px dashed #806a54;
+    animation: orbit 5s linear infinite;
+    z-index: 4;
+}
+
+.mouse {
+    position: absolute;
+    left: 50%;
+    top: -16px;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 30px;
+    background: #77716d;
+    border-radius: 55% 50% 45% 50%;
+    box-shadow: inset -5px -5px 0 #4e4945;
+}
+
+.mouse::before,
+.mouse::after {
+    content: "";
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background: #b58b88;
+    border: 3px solid #77716d;
+    border-radius: 50%;
+    top: -10px;
+}
+
+.mouse::before { left: 5px; }
+.mouse::after { right: 5px; }
+
+.mouse-eye {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+}
+
+.mouse-tail {
+    position: absolute;
+    width: 28px;
+    height: 15px;
+    border-top: 2px solid #9b5555;
+    border-radius: 50%;
+    left: -22px;
+    top: 20px;
+    transform: rotate(20deg);
+}
+
+@keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* =========================
+   2. ROTATING CAR
+========================= */
+
+.car-stage {
+    background:
+        linear-gradient(#a7bac8 0%, #d8d4c9 65%, #55585d 66%, #292d34 100%);
+    perspective: 900px;
+}
+
+.car-platform {
+    position: absolute;
+    width: 350px;
+    height: 90px;
+    left: 50%;
+    bottom: 65px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #30343a;
+    box-shadow: 0 18px 0 #171b20, 0 25px 30px #0008;
+}
+
+.car-rotator {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 260px;
+    height: 160px;
+    margin-left: -130px;
+    margin-top: -115px;
+    transform-style: preserve-3d;
+    animation: carSpin 8s linear infinite;
+}
+
+@keyframes carSpin {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+.car-model {
+    position: absolute;
+    width: 260px;
+    height: 130px;
+    bottom: 0;
+    transform-style: preserve-3d;
+}
+
+.car-body {
+    position: absolute;
+    width: 260px;
+    height: 65px;
+    bottom: 15px;
+    border-radius: 40px 55px 15px 15px;
+    background: linear-gradient(#ed5350, #a91e2b);
+    transform: translateZ(0);
+    box-shadow: inset 0 -10px 0 #771923;
+}
+
+.car-cabin {
+    position: absolute;
+    width: 150px;
+    height: 65px;
+    left: 55px;
+    bottom: 65px;
+    border-radius: 65px 65px 5px 5px;
+    background: linear-gradient(135deg, #d7e5ed, #5d8196);
+    border: 5px solid #a91e2b;
+    transform: translateZ(0);
+}
+
+.car-window {
+    position: absolute;
+    inset: 7px;
+    border-radius: 45px 45px 0 0;
+    background: linear-gradient(120deg, #243d4d, #93b8c8);
+}
+
+.wheel {
+    position: absolute;
+    bottom: 0;
+    width: 55px;
+    height: 55px;
+    background: radial-gradient(circle, #9fa6ac 0 18%, #292d32 20% 48%, #111 50%);
+    border: 6px solid #111;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.wheel.one { left: 32px; }
+.wheel.two { right: 32px; }
+
+.car-light {
+    position: absolute;
+    right: 0;
+    top: 65px;
+    width: 15px;
+    height: 20px;
+    background: #fff4a8;
+    border-radius: 5px;
+}
+
+.car-label {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #d49b58;
+    color: #171717;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s;
+}
+
+button:hover {
+    background: #f1bd7c;
+    transform: translateY(-2px);
+}
+
+.controls label {
+    color: #d5dbe4;
+}
+
+/* =========================
+   3. DRAMATIC CONVERSATION
+========================= */
+
+.story-stage {
+    height: 540px;
+    background: #080c17;
+    position: relative;
+    transition: background 1s;
+}
+
+.story-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 25% 65%, #6c344c66, transparent 38%),
+        radial-gradient(circle at 80% 45%, #345e8766, transparent 35%);
+    transition: 1s;
+}
+
+.story-stage.mood-two {
+    background: #160b15;
+}
+
+.story-stage.mood-three {
+    background: #151522;
+}
+
+.story-stage.mood-four {
+    background: #17251f;
+}
+
+.scene-title {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #d9b88b;
+    letter-spacing: 3px;
+    font-size: 13px;
+    z-index: 3;
+}
+
+.characters {
+    position: absolute;
+    bottom: 115px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+    z-index: 2;
+}
+
+.person,
+.ai {
+    width: 210px;
+    height: 250px;
+    position: relative;
+    text-align: center;
+}
+
+.person-head,
+.ai-head {
+    position: absolute;
+    width: 75px;
+    height: 85px;
+    left: 68px;
+    top: 0;
+    border-radius: 48%;
+    background: #9c624b;
+    box-shadow: inset -10px -5px 0 #0003;
+}
+
+.person-head::before {
+    content: "";
+    position: absolute;
+    width: 78px;
+    height: 36px;
+    background: #24201f;
+    border-radius: 50% 50% 15% 15%;
+    top: -8px;
+    left: -2px;
+}
+
+.person-eye,
+.ai-eye {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #161616;
+    top: 38px;
+}
+
+.person-eye.left,
+.ai-eye.left { left: 20px; }
+.person-eye.right,
+.ai-eye.right { right: 20px; }
+
+.person-body {
+    position: absolute;
+    width: 125px;
+    height: 120px;
+    left: 43px;
+    top: 78px;
+    border-radius: 40px 40px 12px 12px;
+    background: linear-gradient(130deg, #304d70, #172a42);
+}
+
+.person-arm {
+    position: absolute;
+    width: 28px;
+    height: 85px;
+    top: 95px;
+    background: #9c624b;
+    border-radius: 20px;
+    transform: rotate(30deg);
+}
+
+.person-arm.left { left: 28px; }
+.person-arm.right { right: 25px; transform: rotate(-30deg); }
+
+.wheelchair {
+    position: absolute;
+    width: 145px;
+    height: 110px;
+    left: 32px;
+    bottom: -15px;
+    border: 8px solid #adb7c3;
+    border-radius: 50%;
+}
+
+.wheelchair::before {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 55px;
+    border: 7px solid #adb7c3;
+    border-radius: 10px;
+    top: -45px;
+    left: 30px;
+}
+
+.wheelchair::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 5px solid #adb7c3;
+    border-radius: 50%;
+    left: -14px;
+    bottom: -12px;
+    box-shadow: 120px 0 0 -5px #080c17, 120px 0 0 0 #adb7c3;
+}
+
+/* No legs are drawn: the character is seated in the wheelchair. */
+
+.ai-head {
+    background: linear-gradient(135deg, #9dd7e8, #536d9a);
+    box-shadow: 0 0 35px #6ac9ff66;
+}
+
+.ai-head::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 2px solid #c6f3ff;
+    border-radius: 50%;
+}
+
+.ai-eye {
+    background: #d8faff;
+    box-shadow: 0 0 10px #7de8ff;
+}
+
+.ai-body {
+    position: absolute;
+    width: 125px;
+    height: 130px;
+    left: 43px;
+    top: 78px;
+    border-radius: 35px;
+    background: linear-gradient(140deg, #3c6b89, #172b49);
+    border: 2px solid #7dc7e9;
+    box-shadow: 0 0 25px #4aa4d455;
+}
+
+.ai-body::after {
+    content: "AI";
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    color: #b9efff;
+    letter-spacing: 5px;
+}
+
+.dialogue-box {
+    position: absolute;
+    bottom: 20px;
+    left: 5%;
+    width: 90%;
+    min-height: 90px;
+    padding: 18px 20px;
+    border: 1px solid #8c9db8;
+    border-radius: 12px;
+    background: #101725eF;
+    z-index: 4;
+    box-shadow: 0 8px 30px #0008;
+}
+
+.speaker {
+    color: #e5b77b;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.dialogue-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #f1f1f1;
+}
+
+.story-stage.shake .person {
+    animation: emotionalShake .5s ease;
+}
+
+@keyframes emotionalShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #9ca7b5;
+    background: #171e29;
+    margin-top: 40px;
+}
+
+@media(max-width: 600px) {
+    header h1 { font-size: 25px; }
+    .stage { height: 360px; }
+    .cat { transform: translateX(-50%) scale(.85); }
+    .mouse-orbit { transform-origin: center; }
+    .car-rotator { transform: scale(.8); }
+    .story-stage { height: 520px; }
+    .person, .ai {
+        transform: scale(.75);
+        transform-origin: bottom center;
+        margin: 0 -25px;
+    }
+    .dialogue-text { font-size: 14px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ANIMATION PROJECTS</h1>
+    <p>Three creative animation experiments using HTML, CSS and JavaScript</p>
+</header>
+
+<nav>
+    <a href="#cat">Cat and Mouse</a>
+    <a href="#car">Rotating Car</a>
+    <a href="#story">Dramatic Conversation</a>
+</nav>
+
+<!-- 1. CAT AND MOUSE -->
+
+<section id="cat">
+    <div class="section-heading">
+        <h2>01. The Cat and the Mouse</h2>
+        <p>A cat watches a mouse moving around it. Its eyes follow the mouse as it circles.</p>
+    </div>
+
+    <div class="stage cat-stage">
+        <div class="ground-line"></div>
+
+        <div class="cat">
+            <div class="tail"></div>
+            <div class="cat-body"></div>
+            <div class="cat-leg leg-one"></div>
+            <div class="cat-leg leg-two"></div>
+
+            <div class="cat-head" id="catHead">
+                <div class="ear left"></div>
+                <div class="ear right"></div>
+
+                <div class="eye left">
+                    <div class="pupil" id="pupilLeft"></div>
+                </div>
+
+                <div class="eye right">
+                    <div class="pupil" id="pupilRight"></div>
+                </div>
+
+                <div class="nose"></div>
+                <div class="mouth"></div>
+            </div>
+        </div>
+
+        <div class="mouse-orbit" id="mouseOrbit">
+            <div class="mouse">
+                <div class="mouse-eye"></div>
+                <div class="mouse-tail"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="toggleAnimation('mouseOrbit', this)">Pause Animation</button>
+        <button onclick="changeSpeed('mouseOrbit', 3)">Fast</button>
+        <button onclick="changeSpeed('mouseOrbit', 8)">Slow</button>
+    </div>
+</section>
+
+<!-- 2. ROTATING CAR -->
+
+<section id="car">
+    <div class="section-heading">
+        <h2>02. Three-Dimensional Rotating Car</h2>
+        <p>The car rotates around its vertical axis, allowing different views of the vehicle.</p>
+    </div>
+
+    <div class="stage car-stage">
+        <div class="car-platform"></div>
+
+        <div class="car-rotator" id="carRotator">
+            <div class="car-model">
+                <div class="car-cabin">
+                    <div class="car-window"></div>
+                </div>
+
+                <div class="car-body">
+                    <div class="car-light"></div>
+                </div>
+
+                <div class="wheel one"></div>
+                <div class="wheel two"></div>
+            </div>
+        </div>
+
+        <div class="car-label">360° ROTATION</div>
+    </div>
+
+    <div class="controls">
+        <button onclick="toggleAnimation('carRotator', this)">Pause Rotation</button>
+        <button onclick="changeSpeed('carRotator', 4)">Fast Rotation</button>
+        <button onclick="changeSpeed('carRotator', 12)">Slow Rotation</button>
+    </div>
+</section>
+
+<!-- 3. DRAMATIC CONVERSATION -->
+
+<section id="story">
+    <div class="section-heading">
+        <h2>03. A Conversation About Life</h2>
+        <p>A dramatic conversation between a wheelchair user and an artificial intelligence companion.</p>
+    </div>
+
+    <div class="stage story-stage" id="storyStage">
+        <div class="scene-title" id="sceneTitle">A MOMENT OF SILENCE</div>
+
+        <div class="characters">
+
+            <!-- PERSON USING WHEELCHAIR -->
+
+            <div class="person">
+                <div class="person-head">
+                    <div class="person-eye left"></div>
+                    <div class="person-eye right"></div>
+                </div>
+
+                <div class="person-body"></div>
+                <div class="person-arm left"></div>
+                <div class="person-arm right"></div>
+                <div class="wheelchair"></div>
+            </div>
+
+            <!-- AI COMPANION -->
+
+            <div class="ai">
+                <div class="ai-head">
+                    <div class="ai-eye left"></div>
+                    <div class="ai-eye right"></div>
+                </div>
+
+                <div class="ai-body"></div>
+            </div>
+        </div>
+
+        <div class="dialogue-box">
+            <div class="speaker" id="speaker">A PERSON</div>
+            <div class="dialogue-text" id="dialogue">
+                Sometimes I wonder if people see me for who I really am.
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="nextDialogue()">Next Scene</button>
+        <button onclick="playStory()" id="playButton">Play Conversation</button>
+        <button onclick="restartStory()">Restart</button>
+    </div>
+</section>
+
+<footer>
+    <p>Animation Projects | Designed with HTML, CSS and JavaScript</p>
+</footer>
+
+<script>
+
+/* =========================
+   GENERAL ANIMATION CONTROLS
+========================= */
+
+function toggleAnimation(id, button) {
+    const element = document.getElementById(id);
+
+    const state = getComputedStyle(element).animationPlayState;
+
+    if (state === "paused") {
+        element.style.animationPlayState = "running";
+        button.textContent = id === "carRotator" ? "Pause Rotation" : "Pause Animation";
+    } else {
+        element.style.animationPlayState = "paused";
+        button.textContent = "Resume Animation";
+    }
+}
+
+function changeSpeed(id, seconds) {
+    const element = document.getElementById(id);
+    element.style.animationDuration = seconds + "s";
+}
+
+/* =========================
+   CAT EYE TRACKING
+========================= */
+
+let eyePosition = 0;
+let eyeDirection = 1;
+
+setInterval(() => {
+    eyePosition += eyeDirection * 2;
+
+    if (eyePosition > 7 || eyePosition < -7) {
+        eyeDirection *= -1;
+    }
+
+    document.getElementById("pupilLeft").style.transform =
+        `translateX(${eyePosition}px)`;
+
+    document.getElementById("pupilRight").style.transform =
+        `translateX(${eyePosition}px)`;
+
+}, 100);
+
+/* =========================
+   DRAMATIC CONVERSATION
+========================= */
+
+const scenes = [
+    {
+        title: "A MOMENT OF SILENCE",
+        speaker: "A PERSON",
+        text: "Sometimes I wonder if people see me for who I really am."
+    },
+    {
+        title: "THE QUESTION",
+        speaker: "AI COMPANION",
+        text: "What do you mean? You are more than what people see on the outside."
+    },
+    {
+        title: "THE PAIN",
+        speaker: "A PERSON",
+        text: "They stare. They whisper. Some treat me as if my dreams ended the day I lost my legs. Do you know how painful that feels?"
+    },
+    {
+        title: "A DIFFICULT TRUTH",
+        speaker: "AI COMPANION",
+        text: "I may not feel pain the way you do, but I understand that being judged unfairly can hurt deeply."
+    },
+    {
+        title: "THE OUTBURST",
+        speaker: "A PERSON",
+        text: "I AM STILL HUMAN! I still have dreams, ambitions and a future! Why should my disability define my entire existence?"
+    },
+    {
+        title: "THE RESPONSE",
+        speaker: "AI COMPANION",
+        text: "It shouldn't. Your wheelchair is part of your journey, not the measure of your worth."
+    },
+    {
+        title: "A NEW PERSPECTIVE",
+        speaker: "A PERSON",
+        text: "Maybe I have spent too much time trying to prove that I am normal to people who never tried to understand me."
+    },
+    {
+        title: "THE FINAL WORD",
+        speaker: "AI COMPANION",
+        text: "You don't owe the world proof of your worth. You deserve respect simply because you are human."
+    },
+    {
+        title: "HOPE",
+        speaker: "A PERSON",
+        text: "Then I will keep moving forward. Not because life is easy, but because my story is not over."
+    }
+];
+
+let currentScene = 0;
+let storyTimer = null;
+
+function showScene(index) {
+    const scene = scenes[index];
+
+    document.getElementById("sceneTitle").textContent = scene.title;
+    document.getElementById("speaker").textContent = scene.speaker;
+    document.getElementById("dialogue").textContent = scene.text;
+
+    const stage = document.getElementById("storyStage");
+
+    stage.className = "stage story-stage";
+
+    if (index >= 2 && index <= 4) {
+        stage.classList.add("mood-two");
+    } else if (index >= 5 && index <= 7) {
+        stage.classList.add("mood-three");
+    } else if (index === 8) {
+        stage.classList.add("mood-four");
+    }
+
+    if (index === 4) {
+        stage.classList.add("shake");
+    }
+}
+
+function nextDialogue() {
+    stopStory();
+
+    currentScene++;
+
+    if (currentScene >= scenes.length) {
+        currentScene = 0;
+    }
+
+    showScene(currentScene);
+}
+
+function playStory() {
+    if (storyTimer) {
+        stopStory();
+        return;
+    }
+
+    document.getElementById("playButton").textContent = "Pause Conversation";
+
+    storyTimer = setInterval(() => {
+        currentScene++;
+
+        if (currentScene >= scenes.length) {
+            stopStory();
+            currentScene = scenes.length - 1;
+            return;
+        }
+
+        showScene(currentScene);
+
+    }, 5000);
+}
+
+function stopStory() {
+    clearInterval(storyTimer);
+    storyTimer = null;
+
+    document.getElementById("playButton").textContent =
+        "Play Conversation";
+}
+
+function restartStory() {
+    stopStory();
+    currentScene = 0;
+    showScene(currentScene);
+}
+
+showScene(0);
+
+</script>
+
+</body>
+</html>
+>>>>>>> 0e76a8c7cfab10677af2975b3822a8d727e0fbb0
